@@ -1,0 +1,27 @@
+What's new in Ledalab V.3.4.9?
+------------------------------
+
+Optional z-scaling of exported variables
+
+The batchmode parameter 'overview' now accepts an image type as parameter, e.g. 'overview','png'
+
+Fixed marker import for Matlab >=R2015a
+
+Various performance optimizations and bugfixes
+
+e.g. in sdeco_interimpulsefit_original.m
+
+% row 18 changer to for smoother performance:
+	startIdx = round(minL(end,2));
+	endIdx = round(double(length(driver)) - double(sr));
+	iif_idx = [minL(2,1), iif_idx, startIdx:endIdx];
+
+
+The batchmode doesn't change the working directory any more and allows more flexibility
+in the choice of files to be analyzed, e.g.:
+
+Ledalab('C:/study/datadir') % directory with data files
+Ledalab('C:/study/datadir/*.txt') % all patterns accepted by dir()
+Ledalab({'participant1.txt','participant24.txt'}) % cell array with file names
+
+
